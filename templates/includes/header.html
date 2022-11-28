@@ -1,0 +1,50 @@
+{% load static %}
+        <img src="{% static 'images/spiral.svg' %}" alt="spiral" class="!absolute left-0 top-0 z-20 w-36 pointer-events-none ">
+        <img src="{% static 'images/ellipses.png' %}" alt="spiral" class="!absolute w-6 left-[117px] top-[148px] z-20">
+        <header class="flex fixed top-0 left-0 z-[100] justify-between items-center shadow-sm px-[5%] bg-white h-[100px]  w-full">
+            <div class="logo text-2xl font-bold">
+                <a href="index.html">
+                    <img src="{% static 'images/logo.png' %}" alt="logo">
+                </a>
+            </div>
+            <nav data-nav class="fixed  lg:static">
+                <ul class="flex items-center space-x-8">
+                    <li class="active"><a href="{% url 'home:home' %}">Home</a></li>
+                    <li {% if 'report' in request.path %}class="active"{% endif %}><a href="{% url 'reports:make_report' %}">Report</a></li>
+                    <li {% if 'blog' in request.path %}class="active"{% endif %}><a href="{% url 'blog:blog' %}">Blog</a></li>
+                    <li {% if 'faq' in request.path %}class="active"{% endif %}><a href="{% url 'home:faq' %}">FAQs</a></li>
+                    <li {% if 'login' in request.path %}class="active"{% endif %}><a href="{% url 'account:login' %}">Login</a></li>
+                    <li ><button class=" cursor-pointer border text-white bg-primaryRed rounded-md px-6 py-2"> <a href="{% url 'account:register' %}">Register</a> </button></li>
+                    <li class="cursor-pointer hidden lg:block ">
+                        <div class="linear rounded-full w-8 p-2">
+
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.role == 3 %}
+                                    <a href="{% url 'reporter:dashboard' %}">
+                                        <img src="{% static 'images/avatar.svg' %}" alt="avatar">
+                                    </a>
+                                {% elif request.user.role == 2 %}
+                                    <a href="{% url 'admin_app:dashboard' %}">
+                                        <img src="{% static 'images/avatar.svg' %}" alt="avatar">
+                                    </a>
+                                {% else %}
+                                <a href="#">
+                                    <img src="{% static 'images/avatar.svg' %}" alt="avatar">
+                                </a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </li>
+                    <img data-closeBtn src="{% static 'images/icon-close.svg' %}" alt="icon-close" class="block lg:hidden absolute right-6 top-1">
+                </ul>
+                <div class="flex fixed bottom-0 justify-between px-10 bg-black  p-5 w-5/6 left-0 lg:hidden mt-5 space-x-4">
+                    <img class="w-5 cursor-pointer" src="{% static 'images/facebook-svgrepo-com.svg' %}" alt="">
+                    <img class="w-5 cursor-pointer" src="{% static 'images/instagram-svgrepo-com.svg' %}" alt="">
+                    <img class="w-5 cursor-pointer" src="{% static 'images/linkedin-svgrepo-com.svg' %}" alt="">
+                    <img class="w-5 cursor-pointer" src="{% static 'images/twitter-svgrepo-com.svg' %}" alt="">
+                </div>
+            </nav>
+            <div data-menu class="btn block lg:hidden cursor-pointer">
+                <img src="{% static 'images/icon-menu.svg' %}" alt="icon-menu" class="brightness-150 invert w-4 h-4 scale-x-150">
+            </div>
+        </header>

@@ -1,0 +1,59 @@
+{% load static %}
+
+<section data-section="1" class="px-[5%] xl:px[0] flex flex-col" >
+    <h2 class="text-center text-2xl font-bold mb-10 sm:mb-14 ">Report</h2>
+    <div class="w-full">
+        <div class="timeline flex items-center mx-auto justify-center">
+                <div class=" group relative active flex flex-col justify-center">
+                    <div class="circle text-sm  circle-1  ">1</div>
+                    <p class=" text-[10px] active  sm:text-xs w-max left-1/2 -translate-x-1/2 -bottom-6 no-wrap absolute" >Career path | Interest</p>
+                </div>
+                <div class="indicator indicator-1"></div>
+                <div class=" group2 relative flex flex-col justify-center">
+                    <div class="circle text-sm  circle-2">2</div>
+                    <p class=" text-[10px] sm:text-xs w-max left-1/2 -translate-x-1/2 -bottom-6 no-wrap absolute" >Career path | Interest</p>
+                </div>
+                <div class="indicator indicator-2"></div>
+            <div class="group3 relative flex flex-col justify-center">
+                <div class="circle text-sm  circle-3">3</div>
+                <p class=" text-[10px] sm:text-xs w-max left-1/2 -translate-x-1/2 -bottom-6 no-wrap absolute" >Experience | Challenges</p>
+            </div>
+        </div>  
+        <div class="mx-auto mt-16 max-w-[600px] p-[5%] border border-[gainsboro] rounded-md shadow-sm my-6">
+            <h3 class="font-semibold text-xl mb-6">New Report / Tips</h3>
+            <section>
+                <p class="mb-2">Is this crime occuring right now? <span class="text-primaryRed">*</span> </p>
+                <div class="flex gap-1 ml-5 mb-1 items-center">
+                    <input type="radio" name="occuring_now" id="yes" checked value="Yes">
+                    <label class="text-sm" for="yes">Yes</label>
+                </div>
+                <div class="flex gap-1 ml-5 items-center">
+                    <input type="radio" name="occuring_now" id="no" value="No">
+                    <label class="text-sm" for="no">No</label>
+                </div>
+            </section>
+            <section class="my-10">
+                <p class="mb-2">Which state was this crime committed?</p>
+                <div>
+                    <select class="border rounded-lg w-full px-2 py-3" name="state" id="state">
+                        <option value="borno" selected >Borno</option>
+                        <option value="lagos" selected >Lagos</option>
+                        <option value="abuja" selected >Abuja</option>
+                        <option value="kano" selected >Kano</option>
+                    </select>
+                </div>
+            </section>
+           
+            <div class="flex gap-2 sm:gap-4 justify-end mt-10 mb-4">
+                <button type="button" data-prevStep1 class="w-28 justify-center items-center rounded-md border border-primaryRed flex py-2 gap-2" >
+                    <img src="{% static 'images/prev.svg' %}" class=" w-4 "  alt="prev">
+                    <span class="text-sm">Prev</span>
+                </button>
+                <button type="button" data-nextStep1 class="w-28 justify-center items-center rounded-md bg-primaryRed flex py-2 gap-2" >
+                    <span class="text-sm text-white">Next</span>
+                    <img src="{% static 'images/next.svg' %}" class="w-4" alt="next">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

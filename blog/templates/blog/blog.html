@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="flex flex-col mt-[100px] " >
+    <div class="">
+        <div class=" bg-customBlack w-full h-[calc(100vh-70px)] lg:h-[450px] relative flex justify-around items-center ">
+            <section class="!w-full gap-16 lg:gap-0 pb-10 lg:pb-[unset] lg:pl-[5%] xl:pl-0 flex  lg:grid grid-cols-[1fr,1fr] flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left justify-between text-white  " >
+                <div class="lg:mt-10 px-5">
+                    <h2 class="text-2xl lg:text-4xl leading-snug font-semibold">Read our blog post to get <br class="hidden sm:block" /> latest about security & <br class="hidden sm:block" /> investigation.</h2>
+                    <!-- <button class="mt-14 text-white bg-primaryRed px-14 py-3 pb-4 rounded-md" ><span> Report Now </span><span class="text-xl ml-1 ">&rarr;</span> </button> -->
+                </div>
+                <div class="-mt-4 lg:mt-[unset] ml-5 lg:ml-0 relative lg:absolute w-[170%] sm:w-[500px] h-[300px] right-0 bottom-0 scale-[55%] sm:scale-[80%] md:scale-[unset] ">
+                    <img src="{% static 'images/blue-rectangle.png' %}" alt="blue-rectangle" class="absolute bottom-[0] -left-5 h-[320px] w-[520px]">
+                    <img src="{% static 'images/red-rectangle.png' %}" alt="" class="absolute w-56 -left-10 -top-12 " >
+                    <img src="{% static 'images/blog.png' %}" alt="about-faq" class="w-full sm:w-[500px] absolute " >
+                </div>
+            </section>
+        </div>
+        <section >
+            <div data-selected="false" class="w-full overflow-hidden">
+                <div class="px-10 pb-4 secondContainer overflow-x-auto flex grid-cols-3 gap-5 mt-10 ">
+                   
+                    {% for blog in latest_5  %}
+                        <div data-item class="relative scale-y-75 cursor-pointer transition-all duration-150 rounded-xl  min-w-[300px] md:min-w-[350px] overflow-hidden">
+                            <img src="{{blog.image.url}}" alt="blog-1" class="w-full h-80 " >
+                            <div class=" bg-black text-white p-7 bg-opacity-70 text-sm absolute bottom-0 left-0 right-0 w-full" >
+                                <p data-blog-created-at-unselected class="text-[13px] font-semibold">{{blog.created_at}}</p>
+                                <p data-blog-title-unselected class="py-3 text-sm font-semibold">{{blog.title}}</p>
+                                <p data-blog-body-unselected class ="opacity-90 text-xs short-body">{{blog.body}}</p>
+                            </div>
+                        </div>
+                    
+                    {% endfor %}
+                 </div>
+                <p class="text-xs mt-5 text-center mb-16">scroll <span class="text-primaryRed">right</span>  or <span class="text-primaryRed">left</span>  to view more</p>
+            </div>
+            <section data-selected="true" class="hide py-10 px-[5%] gap-[5%] xl:px-0 grid md:grid-cols-[1fr,2fr]" >
+                <div class="flex justify-center"><img data-dynamicImg  class="rounded-xl w-full h-60  md:w-auto md:h-auto object-cover" src="../../images/blog1.png" alt=""></div>
+                <div class="max-w-[500px] text-sm mx-auto md:mx-[unset] md:mt-10">
+                    <h2 data-blog-title-selected class="text-xl font-semibold mb-3 " >{{blog.title}}</h2>
+                    <p data-blog-body-selected class = "text-xs">
+                        {{blog.body}}
+                    </p>
+                    <p data-blog-created-at-selected class="text-sm py-5 font-semibold">{{blog.created_at}}</p>
+                    <div class="flex justify-between">
+                        <button class="border px-7 py-[10px] outline-none border-[gainsboro] rounded-md">Verified</button>
+                        <button data-goBackUnselected class="flex rounded-md text-white items-center justify-center px-7 py-[10px] bg-primaryRed"> <span class="mr-2" >&larr;</span> Go Back</button>
+                    </div>
+                </div>
+            </section >
+           
+        </section>
+        <div class="bg-faintRed py-10 " >
+            {% include 'partials/_blog.html' %}
+        </div>   
+        {% include 'partials/_newsletter.html' %}
+    </div>
+</main>
+
+
+{% endblock content %}
+        

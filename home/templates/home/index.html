@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="flex flex-col mt-[100px] " >
+    <div class=" bg-customBlack w-full h-[calc(100vh-100px)] ">
+        <section class="lg:pl-[5%] flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left justify-between text-white lg:pt-[20vh] " >
+            <div class="-mt-10 lg:mt-10">
+                <h2 class=" text-2xl lg:text-4xl leading-snug font-semibold">An Anonymous Crime <br/> Reporting System <br> (ACRS) </h2>
+                <button onclick="window.location.assign('src/pages/report.html')" class="mt-14 text-white bg-primaryRed px-14 py-3 pb-4 rounded-md" ><span> Report Now </span><span class="text-xl ml-1 ">&rarr;</span> </button>
+            </div>
+            <div class="-mt-4 lg:mt-[unset] ml-5 lg:ml-0 w-[500px] h-[372px] relative lg:absolute right-0 scale-[55%] sm:scale-[80%] md:scale-[unset] ">
+                <img src="{% static 'images/blue-rectangle.png' %}" alt="blue-rectangle" class="absolute bottom-[0] -left-5 h-[400px] w-[520px]">
+                <img src="{% static 'images/red-rectangle.png' %}" alt="" class="absolute w-56 -left-10 -top-12 " >
+                <img src="{% static 'images/heroImg.png' %}" alt="hero image" class="w-[500px] absolute " >
+            </div>
+        </section>
+    </div>
+    <div class="bg-faintRed" >
+        <section class="pt-14 pb-10 px-[5%] desktop:px-0 ">
+            <h2 class="text-2xl font-bold mb-10">Quick Links</h2>
+            <div class="flex flex-wrap gap-7 md:gap-10 items-center justify-center lg:justify-between">
+                <div class="relative grid grid-cols-[1fr,1.5fr] md:flex w-full sm:w-[300px] h-44 items-center space-x-4 bg-white rounded-lg shadow-xl p-5 pr-8">
+                    <img src="{% static 'images/officer.svg' %}" alt="officer" class="" >
+                    <div class="">
+                        <p class="text-lg lg:text-xl font-bold">Become an <br> Officer</p>
+                        <p>Join Us</p>
+                    </div>
+                    <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
+                </div>
+                <img src="{% static 'images/vertical-divider.png' %}" alt="vertical-divider" class="h-56 hidden md:block">
+                <div class=" relative grid grid-cols-[1fr,1.5fr] md:flex !ml-0 md:ml-10 w-full sm:w-[300px] h-44 items-center space-x-4 bg-white rounded-lg shadow-xl p-5 pr-8">
+                    <img src="{% static 'images/binoculars.svg' %}" alt="binoculars" class="" >
+                    <div class="">
+                        <p class="text-lg lg:text-xl font-bold">Tips</p>
+                        <p>Anonymous Crime <br> Tips</p>
+                    </div>
+                    <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
+
+                </div>
+                <img src="{% static 'images/vertical-divider.png' %}" alt="vertical-divider" class="h-56 hidden md:block">
+                <div class=" relative grid grid-cols-[1fr,1.5fr] md:flex !ml-0 md:ml-10 w-full sm:w-[300px] h-44 items-center space-x-4 bg-white rounded-lg shadow-xl p-5 pr-8">
+                    <img src="{% static 'images/faq.png' %}" alt="officer" class="" >
+                    <div class="">
+                        <p class="text-lg lg:text-xl font-bold">FAQs</p>
+                        <p>Know More</p>
+                    </div>
+                    <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
+                </div>
+            </div>
+        </section>
+    </div>
+    <div>
+        <section class="px-[5%] xl:px-0 pt-14 py-10 overflow-x-hidden">
+            <div class="mb-10">
+                <button class="w-full sm:w-[unset] justify-between sm:justify-[unset] flex items-center space-x-3 border rounded-md px-3 lg:px-7 py-2 mx-auto">
+                    <img src="{% static 'images/emoji.svg' %}" alt="emoji" class="w-6">
+                    <div class=" flex space-x-0 md:space-x-4 items-center flex-col lg:flex-row">
+                        <p class="font-semibold text-base leading-tight lg:text-lg " >Citizens Feedback</p>
+                        <p class="text-xs sm:leading-[unset] lg:text-sm" >How can we serve you better?</p>
+                    </div>
+                        <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="w-4 ml-1">
+                </button>
+            </div>
+            <div class="flex flex-col  lg:flex-row gap-20 items-center lg:items-start " >
+                <div class="relative w-full sm:w-[320px] lg:w-[unset] ">
+                    <img src="{% static 'images/result.png' %}" alt="result" class="w-full sm:w-80"  >
+                    <img src="{% static 'images/red-rectangle.png' %}" alt="red-rectangle"  class="absolute z-[-1] w-36 -bottom-7 -right-10" >
+                    <img src="{% static 'images/rect-2.png' %}" alt="blue-rectangle" class="absolute z-[-1] top-0 -right-5 h-[400px] " >
+                </div>
+                <div class="flex flex-col max-w-[500px] pt-4 lg:pt-10">
+                    <h2 class="font-bold text-xl mb-4 ">Why We Are The Best</h2>
+                    <p class=" text-justify lg:text-left ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, 
+                        nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. 
+                        Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim... </p>
+                <button class="mt-6 w-fit mx-auto md:mx-[unset] text-white bg-primaryRed px-14 py-3 rounded-md" > Read More <span class="text-xl">&rarr;</span> </button>           
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="bg-faintRed py-10 mt-10" >
+        {% include 'partials/_blog.html' %}
+    </div>
+    <div class=" h-[580px] overflow-hidden">
+        <section class="">
+            <img src="{% static 'images/review-ellipse.png' %}" alt="review-ellipse" class="absolute right-[17%]" >
+            <h2 class="text-2xl font-bold text-center mt-14 my-10 ">See What People Are <br class="block sm:hidden" > Saying.</h2>
+            <div class="max-w-[500px] h-auto  mx-auto cont ">
+                <div class="swiper mySwiper h-[400px] md:h-[350px] scale-[0.9] sm:scale-[unset] relative">
+                    <div class="swiper-wrapper mt-10 relative">
+                      <div class="swiper-slide relative ">
+                        <img src="{% static 'images/hannah.png' %}" alt="hannah" class=" absolute mx-auto left-1/2 -translate-x-1/2 -top-[45px] ">
+                        <h3 class="text-base font-semibold mb-2">Hannah Smith</h3>
+                        <h4 class="mb-1">Victim of Abuse</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim </p>
+                      </div>
+                      <div class="swiper-slide relative ">
+                        <img src="{% static 'images/hannah.png' %}" alt="hannah" class=" absolute mx-auto left-1/2 -translate-x-1/2 -top-[45px] ">
+                        <h3 class="text-base font-semibold mb-2">John Doe</h3>
+                        <h4 class="mb-1">Victim of Abuse</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim </p>
+                      </div>
+                      <div class="swiper-slide relative ">
+                        <img src="{% static 'images/hannah.png' %}" alt="hannah" class=" absolute mx-auto left-1/2 -translate-x-1/2 -top-[45px] ">
+                        <h3 class="text-base font-semibold mb-2">Samuel Elijah</h3>
+                        <h4 class="mb-1">Victim of Abuse</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim </p>
+                      </div>
+                      <div class="swiper-slide relative ">
+                        <img src="{% static 'images/hannah.png' %}" alt="hannah" class=" absolute mx-auto left-1/2 -translate-x-1/2 -top-[45px] ">
+                        <h3 class="text-base font-semibold mb-2">Yusuf Ojo</h3>
+                        <h4 class="mb-1">Victim of Abuse</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis felis id augue sit cursus pellentesque enim </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </section>
+    </div>
+    <p class="text-xs mt-5 text-center mb-16">swipe <span class="text-primaryRed">right</span>  or <span class="text-primaryRed">left</span>  to view more</p>
+    {% include 'partials/_newsletter.html' %}
+</main>
+
+
+{% endblock content %}

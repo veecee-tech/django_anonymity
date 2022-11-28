@@ -1,0 +1,54 @@
+{% load static %}
+
+<section class="px-[5%] xl:px-0" >
+    <h2 class="text-2xl font-bold mb-10">Our Blog Posts</h2>
+    <div class="grid  md:grid-cols-2 lg:grid-cols-3 gap-10">
+        
+        {% for blog in paged_blogs  %}
+            <div class="flex flex-col p-5 shadow-md rounded-lg bg-white">
+                <div class="flex flex-1 flex-col border-b border-[gainsboro]">
+                    <img src="{{blog.image.url}}" alt="blog-1" class="mb-5 blog-img">
+                    <p class="font-semibold mb-3">{{blog.title}}</p>
+                    <p class="mb-5">{{blog.body | stringformat:".100s"}}.........</p>
+                </div>
+                <button class=" font-semibold py-2 mt-3 ml-auto flex items-center space-x-4" >
+                    <span>Read More</span>
+                    <span class="text-xl" >&rarr;</span>
+                </button>
+            </div>
+        
+        {% endfor %}
+        
+        
+        
+    </div>
+    <div class="flex w-full justify-center space-x-2 mt-10 items-center mx-auto">
+        
+        {% if paged_blogs.has_other_pages %}
+       
+                {% if paged_blogs.has_previous %}
+                <p class="scale-y-[1.5] p-2 rounded-full cursor-pointer -mt-1 hover:text-primaryRed"><a class="page-link" href="?pages={{paged_blogs.previous_page_number}}">&lt;</p>
+                {% else %}
+                <p class="scale-y-[1.5] p-2 rounded-full cursor-pointer -mt-1" style="opacity:0.3">&lt;</p>
+                
+                {% endif %}
+
+                {% for i in paged_blogs.paginator.page_range %}
+                    {% if paged_blogs.number == i %}
+                    <p class=" p-2 rounded-full cursor-pointer text-dark"><a class="page-link" href="#">{{i}}</a></p>
+                   
+                    {% else %}
+                        <p class=" p-2 rounded-full cursor-pointer text-primaryRed"><a class="page-link" href="?pages={{i}}">{{i}}</a></p>
+                    {% endif %}
+            {% endfor %}
+
+                {% if paged_blogs.has_next %}
+                <p class="scale-y-[1.5] p-2 rounded-full cursor-pointer -mt-1 hover:text-primaryRed"><a class="page-link" href="?page={{paged_blogs.next_page_number}}">&gt;</p>
+                
+                {% else %}
+                <p class="scale-y-[1.5] p-2 rounded-full cursor-pointer -mt-1" style="opacity:0.3">&gt;</p>
+                {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</section>

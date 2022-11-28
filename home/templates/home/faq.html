@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main class="flex flex-col mt-[100px] " >
+    <div class="" data-report="false">
+        <div class=" bg-customBlack w-full h-[calc(100vh-100px)] lg:h-[450px] relative flex justify-around items-center ">
+            <section class="!w-full gap-16 lg:gap-0 pb-10 lg:pb-[unset] lg:pl-[5%] xl:pl-0 flex  lg:grid grid-cols-[1fr,1fr] flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left justify-between text-white  " >
+                <div class="lg:mt-10">
+                    <h2 class="text-3xl lg:text-4xl leading-snug font-semibold">Confused and need <br> help?  we are here <br> for you.</h2>
+                    <!-- <button class="mt-14 text-white bg-primaryRed px-14 py-3 pb-4 rounded-md" ><span> Report Now </span><span class="text-xl ml-1 ">&rarr;</span> </button> -->
+                </div>
+                <div class="-mt-4 lg:mt-[unset] ml-5 lg:ml-0 relative lg:absolute w-[170%] sm:w-[500px] h-[300px] right-0 bottom-0 scale-[55%] sm:scale-[80%] md:scale-[unset] ">
+                    <img src="{% static 'images/blue-rectangle.png' %}" alt="blue-rectangle" class="absolute bottom-[0] -left-5 h-[320px] w-[520px]">
+                    <img src="{% static 'images/red-rectangle.png' %}" alt="" class="absolute w-56 -left-10 -top-12 " >
+                    <img src="{% static 'images/about-faq.png' %}" alt="about-faq" class="w-full sm:w-[500px] absolute " >
+                </div>
+            </section>
+        </div>
+        <div class="py-14">
+            <section class="faq px-[5%] xl:px-0 grid md:grid-cols-2 gap-[10%] " >
+                <div>
+                    <img src="{% static 'images/faq_image.svg' %}" alt="">
+                </div>
+                <div class="mx-auto md:mt-8 lg:14 max-w-[500px]">
+                    <h2 class="text-xl font-bold mb-8 md:mb-10">Frequently Asked Questions</h2>
+                    <div class="mb-2 flex flex-col border-b border-b-[gainsboro] ">
+                        <div data-questionHeader class="flex justify-between items-baseline mb-2 cursor-pointer">
+                            <h3 class="text-base mr-2 font-semibold">How do anonymous tips works?</h3>
+                            <div>
+                                <span class="font-semibold text-lg" data-plus>+</span>
+                                <span class="hide font-semibold text-lg" data-times >&times;</span>
+                            </div>
+                        </div>
+                        <p data-questionBody class="question-body mb-5 text-xs sm:text-sm opacity-80" >Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla.
+                             Orci, dictumst nec aliquet id ullamcorper venenatis. </p>
+                    </div>
+                    <div class="mb-2 flex flex-col  border-b border-b-[gainsboro] ">
+                        <div data-questionHeader class="flex justify-between items-baseline mb-2 cursor-pointer">
+                            <h3 class="text-base mr-2 font-semibold">How to remain anonymous when reporting a crime?</h3>
+                            <div>
+                                <span class="font-semibold text-lg" data-plus>+</span>
+                                <span class="hide font-semibold text-lg" data-times >&times;</span>
+                            </div>
+                        </div>
+                        <p data-questionBody class="question-body mb-5 text-xs sm:text-sm opacity-80" >Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla.
+                             Orci, dictumst nec aliquet id ullamcorper venenatis. </p>
+                    </div>
+                    <div class="mb-2 flex flex-col  border-b border-b-[gainsboro] ">
+                        <div data-questionHeader class="flex justify-between items-baseline mb-2 cursor-pointer">
+                            <h3 class="text-base mr-2 font-semibold">What happens if you submit a crime tip?</h3>
+                            <div>
+                                <span class="font-semibold text-lg" data-plus>+</span>
+                                <span class="hide font-semibold text-lg" data-times >&times;</span>
+                            </div>
+                        </div>
+                        <p data-questionBody class="question-body mb-5 text-xs sm:text-sm opacity-80" >Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla.
+                             Orci, dictumst nec aliquet id ullamcorper venenatis. </p>
+                    </div>
+                    <div class="mb-2 flex flex-col  border-b border-b-[gainsboro] ">
+                        <div data-questionHeader class="flex justify-between items-baseline mb-2 cursor-pointer">
+                            <h3 class="text-base mr-2 font-semibold">Can I file a police report for verbal threats?</h3>
+                            <div>
+                                <span class="font-semibold text-lg" data-plus>+</span>
+                                <span class="hide font-semibold text-lg" data-times >&times;</span>
+                            </div>
+                        </div>
+                        <p data-questionBody class="question-body mb-5 text-xs sm:text-sm opacity-80" >Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla.
+                             Orci, dictumst nec aliquet id ullamcorper venenatis. </p>
+                    </div>
+                    <div class="mb-2 flex flex-col  border-b border-b-[gainsboro] ">
+                        <div data-questionHeader class="flex justify-between items-baseline mb-2 cursor-pointer">
+                            <h3 class="text-base mr-2 font-semibold">Tortor nisl pellentesque sit quis orci dolor?</h3>
+                            <div>
+                                <span class="font-semibold text-lg" data-plus>+</span>
+                                <span class="hide font-semibold text-lg" data-times >&times;</span>
+                            </div>
+                        </div>
+                        <p data-questionBody class="question-body mb-5 text-xs sm:text-sm opacity-80" >Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla.
+                             Orci, dictumst nec aliquet id ullamcorper venenatis. </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="bg-faintRed py-10 " >
+            {% include 'partials/_blog.html' %}
+        </div>   
+        {% include 'partials/_newsletter.html' %}
+    </div>
+</main>
+
+
+{% endblock content %}
+        
