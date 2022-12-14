@@ -42,7 +42,7 @@
                 <div class="mt-16">
                     <ul data-dashboardUL class = 'flex flex-col  '>               
                         <li id='dashboard' data-dashboardLink class="activeTab cursor-pointer py-2 mb-1 !pl-8 grid grid-cols-[.14fr,1fr] items-center gap-3" > <img class="w-5" src="https://ayo-acrs.netlify.app/images/dashboard.svg" alt="dashboard"><span>Dashboard</span> </li>
-                        <li id="users" data-profileLink class="grid grid-cols-[.14fr,1fr] items-center cursor-pointer py-2 mb-1 !pl-8 gap-3" > <img class = 'w-4' src="https://ayo-acrs.netlify.app/images/user.svg" /> <span>Users</span>  </li>
+                        {% comment %} <li id="users" data-profileLink class="grid grid-cols-[.14fr,1fr] items-center cursor-pointer py-2 mb-1 !pl-8 gap-3" > <img class = 'w-4' src="https://ayo-acrs.netlify.app/images/user.svg" /> <span>Users</span>  </li> {% endcomment %}
                         <li id="settings" class="grid grid-cols-[.14fr,1fr] items-center cursor-pointer py-2 mb-1 !pl-8 gap-3" > <img class="w-[22px]" src="https://ayo-acrs.netlify.app/images/settings.svg" alt="settings"> <span>Settings</span> </li>
                         <li id="logout" class="grid grid-cols-[.14fr,1fr] mt-10 items-center cursor-pointer py-2 mb-1 !pl-8 gap-3" > <img class="brightness-0 w-5" src="https://ayo-acrs.netlify.app/images/Logout.svg" alt="logout"> <span><a href="{% url 'account:logout' %}">Logout</a></span> </li>
                     </ul>
@@ -73,8 +73,7 @@
                                     <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>
-                                            
-                                            {{report.regarding}}
+                                           {{report.regarding}}
                                         </td>
                                         <td>{{report.crime_type}}</td>
                                         <td>
@@ -108,85 +107,46 @@
                     </div>
                     
                 </div>
-                <div class="hide users ">
-                    <div data-userDetails class="mb-14 ">
-                        <p class="font-medium mb-5 text-lg">User Details</p>
-                        <div class="w- full flex-col md:flex-row flex gap-5 md:gap-10 bg-white px-5 md:px-10 lg:px-16 py-10 relative ">
-                            <span data-closeUserDetails="" class="scale-125 cursor-pointer font-light text-3xl absolute right-4 top-1">&times;</span>
-                            <div><img data-userImage class="rounded-lg w-20 h-24 object-contain" src="{% static 'images/blog1.png' %}" alt=""></div>
-                            <div class="flex flex-col gap-2">
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Name:</p>
-                                    <p data-name class="">Jane Chuckwu</p>
+                <div class="hide settings"> 
+                    
+                    <div class="w-full mt-5 py-10 px-5 bg-white rounded-xl ">
+                                <form action="{% url 'account:register' %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="flex flex-col gap-1 mb-5 ">
+                                        <label class="font-semibold" for="name">Full Name</label>
+                                        {{forms.full_name}}
+                                    </div>
+                                    <div class="flex flex-col gap-1 mb-5 ">
+                                        <label class="font-semibold" for="email">Email Address</label>
+                                        {{forms.email}}
+                                    </div>
+                                    <div  class="relative flex flex-col gap-1 mb-5 ">
+                                        <label class="font-semibold" for="password">Password</label>
+                                        <div class="relative w-full ">
+                                            {{forms.password}}
+                                            <img src="{% static 'images/eye.svg' %}" alt="eye" class=" cursor-pointer absolute top-1/2 -translate-y-1/2 right-3">
+                                        </div>
+                                    </div>
+                                    <div  class="relative flex flex-col gap-1 mb-5 ">
+                                        <label class="font-semibold" for="confirm_password">Confirm Password</label>
+                                        <div class="relative w-full ">
+                                            {{forms.password_2}}
+                                            <img src="{% static 'images/eye.svg' %}" alt="eye" class=" cursor-pointer absolute top-1/2 -translate-y-1/2 right-3">
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-between mt-2">
+                                        <div>
+                                            <input type="checkbox" checked name="remember_me" id="remember_me" >
+                                            <label class="text-sm" for="remember_me">I have read and agreed to the <span class="text-[#1676F3] font-semibold underline">Term of service</span> </label>
+                                        </div>
+                                        <button id="swalbtnregister" type="submit" class="w-full mt-8 mb-2 p-3 border border-[gainsboro] rounded-md bg-primaryRed text-white " >Sign Up</button>
+                                </form>
+                                
                                 </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Sex:</p>
-                                    <p class="">Female</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Age:</p>
-                                    <p class="">23</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Occupation:</p>
-                                    <p class="">Nurse</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Marital Status:</p>
-                                    <p class="">Single</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Location:</p>
-                                    <p class="">Naiymi</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <p class="font-medium">Address:</p>
-                                    <p class="">Off 143, Avenue, No. 443 Syd crescent</p>
-                                </div>
-                            </div>
-                        </div>
+                        </section>
                     </div>
-                    <div>
-                        <div>
-                            <select name="filter" id="filter" class="font-medium outline-none border-none bg-transparent" >
-                                <option value="all">All(56)</option>
-                                <option value="male">Female(32)</option>
-                                <option value="female">Male(24)</option>
-                            </select>
-                        </div>
-                        <div class="w-full bg-white mt-5 overflow-auto user-table admin-table text-sm p-3 pt-1 rounded-md">
-                            <table  class="whitespace-nowrap min-w-[470px] md:min-w-[unset] w-full">
-                                <thead>
-                                    <tr>
-                                        
-                                        <th> Image </th>
-                                        <th> Title </th>
-                                        <th> Date </th>
-                                        <th> Action </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="summary flex flex-col md:flex-row gap-5 items-center md:items-[unset] justify-between mt-5 bg-white px-3 py-4 rounded-md text-sm">
-                            <p>Showing <span class="font-medium"> 1</span> to <span class="font-medium">10</span>  of <span class="font-medium">50</span>  entries</p>
-                            <div class="flex items-center gap-5 md:gap-2 ">
-                               
-                                <div class="flex gap-3 md:gap-2 items-center" >
-                                    <button class="px-1 py-[1px] bg-[#f5f5f5]">&lt;</button>
-                                    <span>1</span>
-                                    <span class="bg-primaryRed text-white px-1 py-[1px]">2</span>
-                                    <span>3</span>
-                                    <span>4</span>
-                                    <button class="px-1 py-[1px] bg-[#f5f5f5]">&gt;</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="hide settings"> Settings </div>
                 <div class="hide report-center"> Report Center </div>
                 <div class="hide logout"> Log Out </div>
             </div>

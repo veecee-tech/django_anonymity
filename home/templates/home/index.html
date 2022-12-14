@@ -9,7 +9,7 @@
         <section class="lg:pl-[5%] flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left justify-between text-white lg:pt-[20vh] " >
             <div class="-mt-10 lg:mt-10">
                 <h2 class=" text-2xl lg:text-4xl leading-snug font-semibold">An Anonymous Crime <br/> Reporting System <br> (ACRS) </h2>
-                <button onclick="window.location.assign('src/pages/report.html')" class="mt-14 text-white bg-primaryRed px-14 py-3 pb-4 rounded-md" ><span> Report Now </span><span class="text-xl ml-1 ">&rarr;</span> </button>
+                <button onclick="window.location.assign('src/pages/report.html')" class="mt-14 text-white bg-primaryRed px-14 py-3 pb-4 rounded-md" ><span><a href="{% url 'reports:make_report' %}">Report Now</a>  </span><span class="text-xl ml-1 ">&rarr;</span> </button>
             </div>
             <div class="-mt-4 lg:mt-[unset] ml-5 lg:ml-0 w-[500px] h-[372px] relative lg:absolute right-0 scale-[55%] sm:scale-[80%] md:scale-[unset] ">
                 <img src="{% static 'images/blue-rectangle.png' %}" alt="blue-rectangle" class="absolute bottom-[0] -left-5 h-[400px] w-[520px]">
@@ -26,7 +26,7 @@
                     <img src="{% static 'images/officer.svg' %}" alt="officer" class="" >
                     <div class="">
                         <p class="text-lg lg:text-xl font-bold">Become an <br> Officer</p>
-                        <p>Join Us</p>
+                        <p>Coming Soon</p>
                     </div>
                     <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
                 </div>
@@ -47,7 +47,10 @@
                         <p class="text-lg lg:text-xl font-bold">FAQs</p>
                         <p>Know More</p>
                     </div>
-                    <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
+                    <a href="{% url 'home:faq' %}">
+                        <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="absolute cursor-pointer w-4 right-4 bottom-3" >
+                    </a>
+                    
                 </div>
             </div>
         </section>
@@ -61,7 +64,7 @@
                         <p class="font-semibold text-base leading-tight lg:text-lg " >Citizens Feedback</p>
                         <p class="text-xs sm:leading-[unset] lg:text-sm" >How can we serve you better?</p>
                     </div>
-                        <img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="w-4 ml-1">
+                        <a href="{% url 'home:faq' %}"><img src="{% static 'images/arrow-right.svg' %}" alt="arrow-right" class="w-4 ml-1"></a>
                 </button>
             </div>
             <div class="flex flex-col  lg:flex-row gap-20 items-center lg:items-start " >

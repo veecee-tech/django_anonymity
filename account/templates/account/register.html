@@ -14,9 +14,9 @@
             <div class="mt-10">
                 <h2 class="text-2xl font-bold text-center mb-2">Create a new Account</h2>
                 <p class="text-center mb-5">Sign up now to get started with <span class="font-bold">AY<span class="text-primaryRed">O</span></span> .</p>
-                <button class="flex border border-[gainsboro] mb-8 rounded-md py-3 px-5 w-full gap-5 items-center justify-center text-center">
+                <button id="swalbtn" class="flex border border-[gainsboro] mb-8 rounded-md py-3 px-5 w-full gap-5 items-center justify-center text-center">
                     <img src="{% static 'images/Google__G__Logo%201.png' %}" alt="google">
-                    <span> Signup with Google   </span>
+                    <span id="swalbtngoogle"> Signup with Google   </span>
                 </button>
                 <div class="flex items-center mb-8">
                     <div class="h-[1px] bg-[gainsboro] flex-1" ></div>
@@ -52,7 +52,7 @@
                             <input type="checkbox" checked name="remember_me" id="remember_me" >
                             <label class="text-sm" for="remember_me">I have read and agreed to the <span class="text-[#1676F3] font-semibold underline">Term of service</span> </label>
                         </div>
-                        <button type="submit" class="w-full mt-8 mb-2 p-3 border border-[gainsboro] rounded-md bg-primaryRed text-white " >Sign Up</button>
+                        <button id="swalbtnregister" type="submit" class="w-full mt-8 mb-2 p-3 border border-[gainsboro] rounded-md bg-primaryRed text-white " >Sign Up</button>
                 </form>
                 
                     <p class="text-center text-sm" >Already have an account? <span class="font-bold text-[#1676F3]">

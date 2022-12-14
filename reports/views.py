@@ -30,9 +30,9 @@ def report(request):
         report.user = request.user
         report.crime_occuring_now = crime_occuring_now
         report.location = location
-        report.regarding = regarding
+        report.regarding = ", ".join(regarding)
         report.details = details
-        report.crime_type = crime_type
+        report.crime_type = ", ".join(crime_type)
         report.file = file
 
         report.save()

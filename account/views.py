@@ -62,32 +62,32 @@ def logout_user(request):
     logout(request)
     return redirect('home:home')
 
-# @login_required
-# def change_password(request):
-#     user = Account.objects.get(username__exact = request.user.username)
-#     if request.method == 'POST':
+@login_required
+def change_password(request):
+    user = Account.objects.get(username__exact = request.user.username)
+    if request.method == 'POST':
 
-#         old_password = request.POST.get('old_password')
-#         new_password = request.POST.get('new_password')
-#         confirm_password = request.POST.get('confirm_password')
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
 
-#         success_check = user.check_password(old_password)
+        success_check = user.check_password(old_password)
 
-#         if success_check:
+        if success_check:
 
-#             if new_password == confirm_password:
-#                 user.set_password(new_password)
-#                 user.save()
-#                 update_session_auth_hash(request, user)
-#                 messages.success(request, "Password Changed Succssfully")
-#                 return redirect('change_password')
-#             else:
-#                 messages.error(request, 'Password does not match')
-#                 return redirect('change_password')
-#         else:
-#             messages.error(request, 'Old password incorrect')
+            if new_password == confirm_password:
+                user.set_password(new_password)
+                user.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, "Password Changed Succssfully")
+                return redirect('change_password')
+            else:
+                messages.error(request, 'Password does not match')
+                return redirect('change_password')
+        else:
+            messages.error(request, 'Old password incorrect')
 
         
-#     return render(request, 'authentication/change_password.html')
+    return render(request, 'authentication/change_password.html')
 
         

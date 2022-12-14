@@ -22,3 +22,13 @@ def blog_list(request):
     }
 
     return render(request, 'blog/blog.html', context)
+
+def blog_details(request, id):
+
+    blog = Blog.objects.get(id=id)
+
+    context = {
+        'blog': blog
+    }
+
+    return render(request, 'blog/blog_details.html', context)

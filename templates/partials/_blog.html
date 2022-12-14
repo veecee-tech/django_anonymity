@@ -12,7 +12,7 @@
                     <p class="mb-5">{{blog.body | stringformat:".100s"}}.........</p>
                 </div>
                 <button class=" font-semibold py-2 mt-3 ml-auto flex items-center space-x-4" >
-                    <span>Read More</span>
+                    <a href="{% url 'blog:blog_details' blog.id %}">Read More</a>
                     <span class="text-xl" >&rarr;</span>
                 </button>
             </div>

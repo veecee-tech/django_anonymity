@@ -14,12 +14,15 @@ def dashboard(request):
         return redirect('account:login')
 
     users = Account.objects.filter(role=3)
-    reports = Report.objects.all()
+    reports = Report.objects.all().order_by('-created_at')
 
+
+    
 
     context = {
         'users': users,
-        'reports': reports
+        'reports': reports,
+        
     }
     return render(request, 'admin_app/index.html', context)
 
