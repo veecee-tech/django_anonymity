@@ -8,6 +8,8 @@ class Report(models.Model):
     STATUS_CHOICE = (
         ('pending', 'PENDING'),
         ('acknowledged', 'ACKNOWLEDGED'),
+        ('not acknowledged', 'NOT ACKNOWLEDGED'),
+
 
     )
 

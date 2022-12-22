@@ -33,3 +33,11 @@ def acknowledge(request, id):
     report.save()
 
     return redirect('admin_app:dashboard')
+
+def unacknowledge(request, id):
+    report = Report.objects.get(id=id)
+    report.status = "not acknowledged"
+
+    report.save()
+
+    return redirect('admin_app:dashboard')

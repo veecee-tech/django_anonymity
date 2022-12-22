@@ -19,16 +19,20 @@
                     <img src="{% static 'images/logo.png' %}" alt="logo">
                 </a>
             </div>
+            
             <div class="hidden md:block relative ml-20 ">
                 <input type="search" placeholder="Search Data..." class="pl-10 px-4 py-3 appearance-none outline-none w-[300px]" >
                 <img src="https://ayo-acrs.netlify.app/images/search.svg" alt="search icon" class="w-5 absolute top-1/2 -translate-y-1/2 left-3 "  />
             </div>
+           
+            {% if not request.user.role == 2 %}
             <div class="flex items-center gap-4 ml-auto mr-10 md:mr-[unset] ">
                 <div class="flex items-center gap-1">
                     <img src="{% static 'images/hannah.png' %}" alt="hannah" class="w-8 h-8">
                     <p class="hidden md:block text-xs font-semibold leading-[12px] sm:leading-[unset] ">Abdullahi <br class="block sm:hidden"> Suleiman</p>
                 </div>
             </div>
+            {% endif %}
             <div data-userDashboardMenu class="btn block lg:hidden cursor-pointer">
                 <img src="https://ayo-acrs.netlify.app/images/icon-menu.svg" alt="icon-menu" class="brightness-150 invert w-4 h-4 scale-x-150">
             </div>
@@ -83,14 +87,14 @@
                                         <td>
                                                 <div class="cursor-pointer flex font-bold">
 
-                                                    {% if report.status == 'pending' %}
+                                                    {% if report.status == 'pending' or report.status == 'not acknowledged' %}
                                                     <a href="{% url 'admin_app:ack' report.id %}" class="bg-orange-400 text-white rounded-lg px-5 py-2">
                                                         Acknowledge
                                                     </a>
                                                     {% else %}
-                                                    <button href="" class="bg-orange-400 opacity-70 text-white rounded-lg px-5 py-2" disabled>
-                                                        Acknowledged
-                                                    </button>
+                                                    <a href="{% url 'admin_app:unack' report.id %}" class="bg-orange-400 text-white rounded-lg px-5 py-2">
+                                                        Not Acknowledge
+                                                    </a>
                                                     {% endif %}
                                                     
                                                     

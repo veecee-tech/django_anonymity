@@ -1,4 +1,13 @@
 {% load static %}
+
+<style>
+    .reg:hover {
+        background-color: #fff !important;
+        color: #f00 !important;
+        border: 1px solid red !important;
+    }
+
+</style>
         <img src="{% static 'images/spiral.svg' %}" alt="spiral" class="!absolute left-0 top-0 z-20 w-36 pointer-events-none ">
         <img src="{% static 'images/ellipses.png' %}" alt="spiral" class="!absolute w-6 left-[117px] top-[148px] z-20">
         <header class="flex fixed top-0 left-0 z-[100] justify-between items-center shadow-sm px-[5%] bg-white h-[100px]  w-full">
@@ -9,12 +18,14 @@
             </div>
             <nav data-nav class="fixed  lg:static">
                 <ul class="flex items-center space-x-8">
-                    <li class="active"><a href="{% url 'home:home' %}">Home</a></li>
+                    <li {% if request.path == '/' %}class="active"{% endif %}><a href="{% url 'home:home' %}">Home</a></li>
                     <li {% if 'report' in request.path %}class="active"{% endif %}><a href="{% url 'reports:make_report' %}">Report</a></li>
                     <li {% if 'blog' in request.path %}class="active"{% endif %}><a href="{% url 'blog:blog' %}">Blog</a></li>
                     <li {% if 'faq' in request.path %}class="active"{% endif %}><a href="{% url 'home:faq' %}">FAQs</a></li>
+                    {% if not user.is_authenticated %}
                     <li {% if 'login' in request.path %}class="active"{% endif %}><a href="{% url 'account:login' %}">Login</a></li>
-                    <li ><button class=" cursor-pointer border text-white bg-primaryRed rounded-md px-6 py-2"> <a href="{% url 'account:register' %}">Register</a> </button></li>
+                    <li ><button class=" cursor-pointer border text-white bg-primaryRed rounded-md px-6 py-2 reg"> <a href="{% url 'account:register' %}">Register</a> </button></li>
+                    {% endif %}
                     <li class="cursor-pointer hidden lg:block ">
                         <div class="linear rounded-full w-8 p-2">
 
